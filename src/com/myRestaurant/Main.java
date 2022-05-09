@@ -11,8 +11,8 @@ public class Main {
     // had to make all of these static in order to be able to go back to the main menu (option 4 from menuController)
     // if i didnt, a new restaurant object would be recreated everytime i went back to the main page (run()) and all the options would be reset.
     static DbController dbController = new DbController();
-    static Restaurant myRestaurant = new Restaurant(10, dbController.loadMenuItems());
-    static MenuController menuController = new MenuController(myRestaurant);
+    static Restaurant myRestaurant = new Restaurant(10);
+    static MenuController menuController = new MenuController(myRestaurant, dbController.loadMenuItems());
     static OrderController orderController = new OrderController(myRestaurant, menuController);
 
     public static void main(String[] args) {

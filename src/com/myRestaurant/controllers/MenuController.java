@@ -2,27 +2,27 @@ package com.myRestaurant.controllers;
 
 import com.myRestaurant.Main;
 import com.myRestaurant.UI;
+import com.myRestaurant.entities.MenuItem;
 import com.myRestaurant.entities.Restaurant;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MenuController {
 
     private Restaurant myRestaurant;
+    private List<MenuItem> menuItems;
     private Scanner scanner = new Scanner(System.in);
     private int currentMenu;
     UI ui = new UI();
 
 
 
-    public MenuController(Restaurant myRestaurant) {
+    public MenuController(Restaurant myRestaurant, ArrayList<MenuItem> menuItems) {
         this.myRestaurant = myRestaurant;
-        this.currentMenu = 1; //default menu is menu 1.
-    }
-
-
-    public void printMenu() {
-        myRestaurant.printMenu(this.currentMenu);
+        this.currentMenu = 1; // default menu is menu 1.
+        this.menuItems = menuItems;
     }
 
     //public void loadMenu(int menuNumber) {
@@ -62,6 +62,14 @@ public class MenuController {
             default -> System.out.println("Please choose a valid option.");
         }
 
+    }
+
+    public void printMenu() {
+        for (MenuItem menuItem : menuItems) {
+            if(menuItem.getMenuNumber() == this.currentMenu) {
+                System.out.println(menuItem);
+            }
+        }
     }
 
     public void printDrinks() {

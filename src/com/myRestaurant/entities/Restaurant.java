@@ -7,16 +7,16 @@ public class Restaurant {
 
     private int capacity;
     private List<Table> tableList;
-    private List<MenuItem> menuItems;
 
-    public Restaurant(int capacity, ArrayList<MenuItem> menuItems) {
+
+    public Restaurant(int capacity) {
         this.capacity = capacity;
         this.tableList = new ArrayList<>();
         for (int i = 0; i < capacity; i++) {
             Table table = new Table(i + 1);
             this.tableList.add(table);
         }
-        this.menuItems = menuItems;
+
     }
 
     public void printAllTables() {
@@ -50,21 +50,12 @@ public class Restaurant {
         }
     }
 
-    public void printMenu(int menuNumber) {
-        for (MenuItem menuItem : menuItems) {
-            if(menuItem.getMenuNumber() == menuNumber) {
-                System.out.println(menuItem);
-            }
-        }
-    }
-
 
     @Override
     public String toString() {
         return "Restaurant{" +
                 "capacity=" + capacity +
                 ", tableList=" + tableList +
-                ", menuItems=" + menuItems +
                 '}';
     }
 
