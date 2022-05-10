@@ -93,7 +93,7 @@ public class OrderController {
 
     private void addToOrder(List<MenuItem> itemsToAdd, int tableNumber) {
         Order order = new Order(tableNumber, itemsToAdd);
-        System.out.println(order);
+
         addOrderToDatabase(order);
         itemsToAdd.clear();
     }
@@ -101,7 +101,6 @@ public class OrderController {
     private void addOrderToDatabase(Order order) {
         DbController dbc = new DbController();
         dbc.insertOrder(order);
-        System.out.println("Inserted order-product-info into the junction table");
     }
 
 

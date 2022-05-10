@@ -4,9 +4,11 @@ import com.myRestaurant.database.DBMenuItems;
 import com.myRestaurant.database.DBOrders;
 import com.myRestaurant.entities.MenuItem;
 import com.myRestaurant.entities.Order;
+import com.myRestaurant.view.Main;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DbController  {
 
@@ -30,28 +32,26 @@ public class DbController  {
 
     public void insertOrder(Order order) {
         dbo.insertOrder(order);
-        insertProducts(order);
-
+        dbo.insertOrderToProduct(order, order.getOrderedMenuItems());
+        Main.run();
     }
 
-    private void insertProducts(Order order) {
-        for (MenuItem item : order.getOrderedMenuItems()) {
-            String orderID = order.getOrderID();
-            int productID = item.getMenuItemID();
-            int tablenumber = order.getTableNumber();
-            int active = order.getActive();
-            dbo.insertOrderToProduct(orderID, productID, tablenumber, active);
-            retrieveOrderID(1);
-        }
-    }
-
-    public void retrieveOrderID(int tableNumber)  {
+    public String retrieveOrderID(int tableNumber)  {
         String id = null;
         try {
             id = dbo.getOrderidFromTablenumber(tableNumber);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(id);
+        return id;
+    }
+
+    public List<MenuItem> retrieveItemList(String orderID) {
+        return dbo.retrieveItemsFromOrder(orderID);
+    }
+
+    public void setAvailable(int tableNumber){
+        dbo.setAvailable(tableNumber);
+        System.out.println("Table " + tableNumber + " is set available");
     }
 }

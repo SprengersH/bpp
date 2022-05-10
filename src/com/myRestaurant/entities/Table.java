@@ -26,13 +26,13 @@ public class Table {
     public String toString() {
         String s = "";
         if (available) {
-            s = "Table " +
+            s = "*  Table " +
                     tableNumber +
-                    " = available for customers";
+                    "   = available for customers       *";
         } else {
-            s = "Table " +
+            s = "*  Table " +
                     tableNumber +
-                    " = occupied";
+                    "   = occupied                      *";
         }
         return s;
     }

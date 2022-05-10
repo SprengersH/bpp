@@ -11,7 +11,8 @@ public class UI {
         System.out.println("*    1. Order                                *");
         System.out.println("*    2. Menu                                 *");
         System.out.println("*    3. Check current table availability     *");
-        System.out.println("*    4. Sales Records                        *");
+        System.out.println("*    4. Checkout Table                       *");
+        System.out.println("*    5. Sales Records                        *");
         System.out.println(SPACING);
         System.out.println("*    Select your option:                     *");
 

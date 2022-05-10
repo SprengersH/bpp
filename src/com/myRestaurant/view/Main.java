@@ -1,5 +1,6 @@
 package com.myRestaurant.view;
 
+import com.myRestaurant.controllers.BillController;
 import com.myRestaurant.controllers.DbController;
 import com.myRestaurant.controllers.MenuController;
 import com.myRestaurant.controllers.OrderController;
@@ -14,7 +15,7 @@ public class Main {
     static Restaurant myRestaurant = new Restaurant(10);
     static MenuController menuController = new MenuController(myRestaurant, dbController.loadMenuItems());
     static OrderController orderController = new OrderController(myRestaurant, menuController, dbController.loadMenuItems());
-
+    static BillController billController = new BillController(dbController);
     public static void main(String[] args) {
         run();
     }
@@ -38,12 +39,17 @@ public class Main {
             }
             case (3) -> {
                 // this should display all tables including their availability.
-                System.out.println("Displaying Table Status:");
+                System.out.println("*   Displaying Table Status:                 *");
                 myRestaurant.printAllTables();
                 run();
             }
-            // TODO this should ask for a time period and show you the sales in that period.
             case (4) -> {
+                System.out.println("selected checkout");
+                System.out.println("Enter tablenumber to checkout:.....");
+                billController.billMode();
+            }
+            // TODO this should ask for a time period and show you the sales in that period.
+            case (5) -> {
                 System.out.println("selected sales records");
                 System.out.println("Nothing here yet, go back");
                 run();
