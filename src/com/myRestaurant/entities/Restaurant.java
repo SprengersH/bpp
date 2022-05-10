@@ -42,7 +42,7 @@ public class Restaurant {
         }
     }
     public void setAvailable(int number) {
-        // this might need some verification that current table has been checked out before allowing to change.
+        // todo this might need some verification that current table has been checked out before allowing to change.
         for (Table table : tableList) {
             if (table.getTableNumber() == number) {
                 table.setAvailable(true);

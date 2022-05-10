@@ -1,6 +1,6 @@
 package com.myRestaurant.entities;
 
-public class MenuItem implements com.myRestaurant.interfaces.MenuItem {
+public class Beverage implements com.myRestaurant.interfaces.MenuItem {
 
     private int menuItemID;
     private int menuNumber;
@@ -9,7 +9,7 @@ public class MenuItem implements com.myRestaurant.interfaces.MenuItem {
     private String description;
     private double price;
 
-    public MenuItem(int menuItemID, int menuNumber, String courseType, String name, String description, double price) {
+    public Beverage(int menuItemID, int menuNumber, String courseType, String name, String description, double price) {
         this.menuItemID = menuItemID;
         this.menuNumber = menuNumber;
         this.courseType = courseType;

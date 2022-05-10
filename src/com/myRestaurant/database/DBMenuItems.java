@@ -34,6 +34,8 @@ public class DBMenuItems extends Database {
         }
         return allMenuItemsList;
     }
+
+
     public ArrayList<MenuItem> selectMenu(int menunumber) {
 
         String query = "SELECT * FROM menuitem WHERE menunumber = ?";

@@ -1,4 +1,4 @@
-package com.myRestaurant;
+package com.myRestaurant.view;
 
 import com.myRestaurant.controllers.DbController;
 import com.myRestaurant.controllers.MenuController;
@@ -13,7 +13,7 @@ public class Main {
     static DbController dbController = new DbController();
     static Restaurant myRestaurant = new Restaurant(10);
     static MenuController menuController = new MenuController(myRestaurant, dbController.loadMenuItems());
-    static OrderController orderController = new OrderController(myRestaurant, menuController);
+    static OrderController orderController = new OrderController(myRestaurant, menuController, dbController.loadMenuItems());
 
     public static void main(String[] args) {
         run();

@@ -1,10 +1,9 @@
 package com.myRestaurant.controllers;
 
-import com.myRestaurant.Main;
-import com.myRestaurant.UI;
+import com.myRestaurant.view.Main;
+import com.myRestaurant.view.UI;
 import com.myRestaurant.entities.MenuItem;
 import com.myRestaurant.entities.Restaurant;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,7 +26,7 @@ public class MenuController {
 
     //public void loadMenu(int menuNumber) {
         // this might cycle through all the menuItems and put them into different Lists of menu's.
-        // at the moment the menuNumber(to which menu it belongs(summer,winter etc)) is embedded in each menuItem.
+        // at the moment the menuNumber(to which menu it belongs(summer,winter etc.)) is embedded in each menuItem.
         //Menu menu = new Menu(1);
     //}
 
@@ -38,7 +37,7 @@ public class MenuController {
             case (1) -> {
                 // TODO this should show the contents of the current menu with courses etc.
                 System.out.println("selected 1");
-                System.out.println("this doesnt do anything yet");
+                System.out.println("this doesn't do anything yet");
                 menuOptions();
             }
             case (2) -> {
@@ -72,6 +71,12 @@ public class MenuController {
         }
     }
 
-    public void printDrinks() {
+    public void printCourse(String course) {
+
+        for (MenuItem menuItem : menuItems) {
+            if(menuItem.getCourseType().equalsIgnoreCase(course)) {
+                System.out.println(menuItem);
+            }
+        }
     }
 }
